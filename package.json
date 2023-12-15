@@ -9,7 +9,8 @@
   },
   "scripts": {
     "save": "git add . && git commit -m \"auto save\"",
-    "push": "npm run save && npm run push"
+    "push": "npm run save && npm run push",
+    "build": "gradle assemble"
   },
   "repository": {
     "type": "git",
