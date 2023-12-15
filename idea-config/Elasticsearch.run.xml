@@ -2,7 +2,7 @@
   <configuration default="false" name="Elasticsearch" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="org.elasticsearch.bootstrap.Elasticsearch" />
     <module name="elasticsearch-6.1.2.core.main" />
-    <option name="VM_PARAMETERS" value="-Des.path.home=$USER_HOME$/es-home -Des.path.conf=$USER_HOME$/es-home/config -Xms1g -Xmx1g -Dlog4j2.disable.jmx=true -Djava.security.policy=$USER_HOME$/es-home/config/elasticsearch.policy" />
+    <option name="VM_PARAMETERS" value="-Des.path.home=$USER_HOME$/es-home -Des.path.conf=$USER_HOME$/es-home/config -Xms1g -Xmx1g -Dlog4j2.disable.jmx=true -Djna.tmpdir=/Users/luobin3/es-tmp -Djava.security.policy=$USER_HOME$/es-home/config/elasticsearch.policy" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.elasticsearch.bootstrap.*" />
