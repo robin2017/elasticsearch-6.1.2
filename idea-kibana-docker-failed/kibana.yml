@@ -1,0 +1,7 @@
+server.name: kibana
+server.host: "0"
+elasticsearch.url: http://10.36.8.171:19200
+elasticsearch.username: robin
+elasticsearch.password: robin
+xpack.monitoring.ui.container.elasticsearch.enabled: true
+xpack.security.enabled: false

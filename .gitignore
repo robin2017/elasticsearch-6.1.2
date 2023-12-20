@@ -44,3 +44,5 @@ html_docs
 /tmp/
 eclipse-build
 
+idea-debug/singleton/data
+idea-debug/singleton/logs

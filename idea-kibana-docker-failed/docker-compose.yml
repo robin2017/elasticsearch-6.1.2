@@ -1,0 +1,15 @@
+version: '3'
+services:
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.1.2
+    environment:
+      ELASTICSEARCH_URL: http://10.36.8.171:19200
+      ELASTICSEARCH_USERNAME: robin
+      ELASTICSEARCH_PASSWORD: robin
+    container_name: kibana-singleton
+    restart: always
+#    volumes:
+#      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - 5601:5601
+    privileged: true    #环境变量
