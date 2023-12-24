@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "e880ef54-8d80-48b2-b727-56e11a073247",
+		"name": "es-6.1.2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14915949"
+	},
+	"item": [
+		{
+			"name": "1-全部查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "2-简单查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\":{\n        \"match\":{\n            \"category\":\"小米\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "3-分页查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\":0,\n    \"size\":5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "4-部分属性查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\":0,\n    \"size\":5,\n    \"_source\":[\"title\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "5-排序",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_source\": [\n        \"title\",\n        \"price\"\n    ],\n    \"sort\": {\n        \"price\": {\n            \"order\": \"desc\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "6-多条件and",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"bool\": {\n            \"must\": [\n                {\n                    \"match\": {\n                        \"category\": \"小米\"\n                    }\n                },\n                {\n                    \"match\": {\n                        \"price\": 1999\n                    }\n                }\n            ]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "7-多条件should",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"bool\": {\n            \"should\": [\n                {\n                    \"match\": {\n                        \"category\": \"小米\"\n                    }\n                },\n                {\n                    \"match\": {\n                        \"price\": 1999\n                    }\n                }\n            ]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "8-全文检索",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\":{\n        \"match\":{\n            \"category\":\"小华\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "9-精确匹配",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\":{\n        \"match_phrase\":{\n            \"category\":\"小华\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "10-聚合",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"aggs\":{  \n        \"price_group\":{  \n            \"terms\":{  \n                \"field\":\"price\"  \n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		}
+	]
+}
