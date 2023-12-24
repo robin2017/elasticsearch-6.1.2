@@ -45,6 +45,7 @@ INSERT INTO `shopping` (title,category,price) values
 ('红米手机note','小米',1599),
 ('navoa7','华为',1999);
 
+![picture 4](images/a359d0461408d18060f20b0cbfa5fd091c4345a6bf8247b8bd2df7e0eeadd0c1.png)  
 
 
 ## postman
