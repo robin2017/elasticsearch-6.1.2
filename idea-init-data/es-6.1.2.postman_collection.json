@@ -215,6 +215,27 @@
 				"url": "http://localhost:19200/shopping/_search"
 			},
 			"response": []
+		},
+		{
+			"name": "11-数字范围",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\":{  \n        \"range\":{  \n            \"price\":{  \n                \"gte\":1500,\n                \"lte\":2000\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
 		}
 	]
 }
