@@ -24,6 +24,29 @@ curl -H "Content-Type: application/json" -XPUT http://127.0.0.1:19200/test2/docs
 ![picture 0](images/f8ec33978f3d78295e482fe6caa59f245c2ae38844f9a86487d3e4d2266c2386.png)  
 ![picture 1](images/c4c2a5fe684433671f836cf0e2071764be7ac3a95de5676322b83d53c7525640.png)  
 
+### 类比mysql
+
+
+create table `shopping`(
+`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+`title` varchar(255) not null,
+`category` VARCHAR(255) not null,
+`price` INT,
+PRIMARY key(id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO `shopping` (title,category,price) values
+('小米手机4','小米',3999),
+('小米手机6','小米',3999),
+('小米手机8','小米',3999),
+('小米手机12','小米',3999),
+('小米手机16','小米',3999),
+('红米手机5','小米',1999),
+('红米手机note','小米',1599),
+('navoa7','华为',1999);
+
+
+
 ## postman
 ![picture 2](images/5a9221025b36142776064e7e64db4e80cc44ec09a5484a59d2a540414b5f2c4c.png)  
 ![picture 3](images/298bb1e9ffea2f922767982697f9554ef508ec19ef674ad368834d5c14e56d8c.png)  

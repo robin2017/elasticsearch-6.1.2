@@ -1,0 +1,14 @@
+{
+  "name": "hello-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose up -d",
+    "down": "docker-compose down",
+    "restart": "npm run down && npm run start",
+    "do":"sh index.sh"
+  },
+  "author": "",
+  "license": "ISC"
+}
