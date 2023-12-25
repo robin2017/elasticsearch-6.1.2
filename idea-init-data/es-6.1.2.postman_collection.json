@@ -205,7 +205,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"aggs\":{  \n        \"price_group\":{  \n            \"terms\":{  \n                \"field\":\"price\"  \n            }\n        }\n    }\n}",
+					"raw": "{\n    \"size\": 0,\n    \"aggs\": {\n        \"sum_all\": {\n            \"sum\": {\n                \"field\": \"price\"\n            }\n        }\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -227,6 +227,111 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"query\":{  \n        \"range\":{  \n            \"price\":{  \n                \"gte\":1500,\n                \"lte\":2000\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "12-聚合-max",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"size\": 0,\n    \"aggs\": {\n        \"max_price\": {\n            \"max\": {\n                \"field\": \"price\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "12-聚合-count",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"size\": 0,\n    \"aggs\": {\n        \"count(price)\": {\n            \"value_count\": {\n                \"field\": \"price\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "13-聚合-stats",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"size\": 0,\n    \"aggs\": {\n        \"stats_price\": {\n            \"stats\": {\n                \"field\": \"price\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "14-聚合-terms",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"size\": 0,\n    \"aggs\": {\n        \"terms_price\": {\n            \"terms\": {\n                \"field\": \"price\",\n                \"size\": 2\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:19200/shopping/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "15-查询2聚合",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"size\": 0,\n    \"query\": {\n        \"match\": {\n            \"title\": \"米\"\n        }\n    },\n    \"aggs\": {\n        \"terms_price\": {\n            \"terms\": {\n                \"field\": \"price\"\n            }\n        }\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
