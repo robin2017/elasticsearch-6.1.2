@@ -1,0 +1,15 @@
+version: '3'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    container_name: elk_elasticsearch  #定义容器名称
+    restart: always  #开机启动，失败也会一直重启
+    environment:
+      - "node.name=robin-es-node-docker"
+      - "cluster.name=robin-es-cluster-docker" #设置集群名称为elasticsearch
+      - "discovery.type=single-node" #以单一节点模式启动
+      - "ES_JAVA_OPTS=-Xms512m -Xmx1024m" #设置使用jvm内存大小
+    volumes:
+      - ./data:/usr/share/elasticsearch/data
+    ports:
+      - 29200:9200

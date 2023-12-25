@@ -1,0 +1,11 @@
+{
+  "name": "es-docker",
+  "scripts": {
+    "start": "docker-compose up -d",
+    "show": "docker-compose ps",
+    "down": "docker-compose down",
+    "restart":"npm run down && npm run initdata2 && npm run start",
+    "initdata1":"rm -rf data && mkdir data && chmod -R 777 data",
+    "initdata2":"rm -rf data && tar -zxvf data.tar.gz && chmod -R 777 data"
+  }
+}
